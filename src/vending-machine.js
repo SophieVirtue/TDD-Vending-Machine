@@ -38,17 +38,53 @@ class vendingMachine {
       });
       return reStockCount;
     }
+
     reStockCoins() {
         const reStockCoinsInventory = Object.entries(this.data.change);
         let reStockCoinsCount = 0;
         reStockCoinsInventory.map(change => {
-          if (change[1].inventory < change[1].max) {
-              change[1].inventory = change[1].max;
+          if (change[1].inventory < 40) {
+              change[1].inventory = 40;
           }
-          reStockCoinsCount += change[1].max;
+          reStockCoinsCount += change[1].inventory;
         });
         return reStockCoinsCount;
-      }
-  }
+    }
+
+    purchaseItem(title, payment) {
+        let itemName = this.data.produce[title].name;
+        let itemPrice = this.data.produce[title].price;
+        let itemInventory = this.data.produce[title].inventory;
+    
+        let purchase = {
+          change: "",
+          item: "",
+          inventory: ""
+        };
+    
+        if (payment === itemPrice || payment > itemPrice) {
+          purchase.change = payment - itemPrice;
+          purchase.item = itemName;
+          purchase.inventory = itemInventory -= 1;
+        }
+        return purchase;
+    }
+
+    makeChange(payment) {
+        let coins = [2, 1, 0.25, 0.1, 0.05];
+        let change = {};
+    
+        for (let i = 0; payment > 0 && i < coins.length; i++) {
+          let coinValue = coins[i];
+    
+          if (coinValue <= payment) {
+            change[coinValue] = Math.floor(payment / coinValue);
+            payment -= coinValue * change[coinValue];
+          }
+        }
+    
+        return change;
+    }
+}
   
   module.exports = vendingMachine;

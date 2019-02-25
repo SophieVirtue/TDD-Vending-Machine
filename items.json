@@ -65,28 +65,23 @@
     "change": {
         "nickel": {
             "value": 0.05,
-            "inventory": 20, 
-            "max": 40
+            "inventory": 20
         },
         "dime": {
             "value": 0.1,
-            "inventory": 20, 
-            "max": 40
+            "inventory": 20
         },
         "quarter": {
             "value": 0.25,
-            "inventory": 30, 
-            "max": 40
+            "inventory": 30
         },
         "loonie": {
             "value": 1,
-            "inventory": 20, 
-            "max": 40
+            "inventory": 20
         },
         "toonie": {
             "value": 2,
-            "inventory": 10, 
-            "max": 40
+            "inventory": 10
         }
     }
 }
