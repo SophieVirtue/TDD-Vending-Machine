@@ -4,7 +4,7 @@ Coding interview question was to implement a vending machine in JavaScript.
 
 ## Screenshots
 
-![Screenshot]()
+![Screenshot](https://github.com/SophieVirtue/TDD-Vending-Machine/blob/master/Screenshot.png)
 
 ## Installation
 
