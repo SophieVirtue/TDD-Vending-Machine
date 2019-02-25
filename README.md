@@ -14,7 +14,7 @@ Next, run the following commads in your terminal:
 
 
 ```node
-cd vending-machine/
+cd TDD-Vending-Machine/
 npm install
 ```
 
