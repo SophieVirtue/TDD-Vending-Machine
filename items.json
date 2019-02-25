@@ -1,0 +1,92 @@
+{
+    "produce": {
+        "orange": {
+            "name": "Orange",
+            "price": 1.5,
+            "inventory": 6
+        },
+        "apple": {
+            "name": "Apple",
+            "price": 1.25,
+            "inventory": 8
+        },
+        "banana": {
+            "name": "Banana",
+            "price": 1,
+            "inventory": 4
+        },
+        "carrot": {
+            "name": "Carrot",
+            "price": 1.75,
+            "inventory": 2
+        },
+        "cucumber": {
+            "name": "Cucumber",
+            "price": 1.5,
+            "inventory": 0
+        },
+        "celery": {
+            "name": "Celery",
+            "price": 1,
+            "inventory": 10
+        },
+        "kiwi": {
+            "name": "Kiwi",
+            "price": 1.35,
+            "inventory": 3
+        },
+        "mango": {
+            "name": "Mango",
+            "price": 2.15,
+            "inventory": 9
+        },
+        "peach": {
+            "name": "Peach",
+            "price": 1.6,
+            "inventory": 5
+        },
+        "onion": {
+            "name": "Onion",
+            "price": 0.8,
+            "inventory": 7
+        },
+        "zuchini": {
+            "name": "Zuchini",
+            "price": 1.4,
+            "inventory": 1
+        },
+        "tomato": {
+            "name": "Tomato",
+            "price": 1.05,
+            "inventory": 5
+        }
+    },
+
+    "change": {
+        "nickel": {
+            "value": 0.05,
+            "inventory": 20, 
+            "max": 40
+        },
+        "dime": {
+            "value": 0.1,
+            "inventory": 20, 
+            "max": 40
+        },
+        "quarter": {
+            "value": 0.25,
+            "inventory": 30, 
+            "max": 40
+        },
+        "loonie": {
+            "value": 1,
+            "inventory": 20, 
+            "max": 40
+        },
+        "toonie": {
+            "value": 2,
+            "inventory": 10, 
+            "max": 40
+        }
+    }
+}

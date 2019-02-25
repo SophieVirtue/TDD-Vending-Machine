@@ -1,102 +1,47 @@
-const VendingMachine = require('../src/vending-machine');
+const vendingMachine = require("../src/vending-machine.js");
 
-describe('VendingMachine', () => {
-    let vendingMachine, produce, change;
-    beforeEach(() => {
-        
-        produce = [
-            {
-                name: 'Orange',
-                price: 1.5,
-                inventory: 6
-            },
-            {
-                name: 'Apple',
-                price: 1.25,
-                inventory: 8
-            },
-            {
-                name: 'Banana',
-                price: 1,
-                inventory: 4
-            },
-            {
-                name: 'Carrot',
-                price: 1.75,
-                inventory: 2
-            },
-            {
-                name: 'Cucumber',
-                price: 1.5,
-                inventory: 0
-            },
-            {
-                name: 'Celery',
-                price: 1,
-                inventory: 10
-            },
-            {
-                name: 'Kiwi',
-                price: 1.35,
-                inventory: 3
-            },
-            {
-                name: 'Mango',
-                price: 2.15,
-                inventory: 9
-            },
-            {
-                name: 'Peach',
-                price: 1.6,
-                inventory: 5
-            },
-            {
-                name: 'Onion',
-                price: 0.8,
-                inventory: 7
-            },
-            {
-                name: 'Zuchini',
-                price: 1.4,
-                inventory: 1
-            },
-            {
-                name: 'Tomato',
-                price: 1.05,
-                inventory: 5
-            }
-        ];
-        change = {
-            0.05: 12,
-            0.1: 10,
-            0.25: 16,
-            1.0: 13,
-            2.0: 3,
-        };
-        vendingMachine = new VendingMachine(produce, change);
+describe("vendingMachine", () => {
+  let VendingMachine;
+
+  beforeEach(() => {
+    VendingMachine = new vendingMachine("../items.json");
+  });
+
+  describe("Single produce item detail search", () => {
+    it("should return the name and inventory amount of the item", () => {
+      expect(VendingMachine.singleItemInventory("carrot")).toEqual({
+        name: "Carrot",
+        inventory: 2
+      });
     });
 
-    describe('Print vending machine inventory', () => {
-        
-        describe('When you ask for the vending machine inventory', () => {
-            it('will return the array of produce', () => {
-                const result = vendingMachine.printInventory();
-                expect(result).toEqual(
-                    [{name: 'Orange', price: 1.5, inventory: 6},
-                    {name: 'Apple', price: 1.25, inventory: 8},
-                    {name: 'Banana', price: 1, inventory: 4},
-                    {name: 'Carrot', price: 1.75, inventory: 2},
-                    {name: 'Cucumber', price: 1.5, inventory: 0},
-                    {name: 'Celery', price: 1, inventory: 10},
-                    {name: 'Kiwi', price: 1.35, inventory: 3},
-                    {name: 'Mango', price: 2.15,inventory: 9},
-                    {name: 'Peach', price: 1.6, inventory: 5},
-                    {name: 'Onion', price: 0.8, inventory: 7},
-                    {name: 'Zuchini', price: 1.4, inventory: 1},
-                    {name: 'Tomato', price: 1.05, inventory: 5}]
-                );
-            });
-        });
-       
+    it("should return the name and price of the item", () => {
+      expect(VendingMachine.singleItemPrice("carrot")).toEqual({
+        name: "Carrot",
+        price: 1.75
+      });
     });
+  });
+
+  describe("All produce inventory search", () => {
+    it("should return complete vending machine inventory", () => {
+      expect(VendingMachine.produceInventory()).toBe(
+        "Orange: 6, Apple: 8, Banana: 4, Carrot: 2, Cucumber: 0, Celery: 10, Kiwi: 3, Mango: 9, Peach: 5, Onion: 7, Zuchini: 1, Tomato: 5"     
+      );
+    });
+  });
+
+  describe("Adding inventory to vending machine", () => {
+    it("should return produce count of 144, since there are 12 items with 12 slots each", () => {
+      expect(VendingMachine.reStock()).toEqual(144);
+    });
+  });
+
+  describe("Adding coint inventory to vending machine", () => {
+    it("should return coin count of 200,since there are 5 coins with 40 max each", () => {
+      expect(VendingMachine.reStockCoins()).toEqual(200);
+    });
+  });
+
+  
 });
