@@ -10,17 +10,14 @@ Coding interview question was to implement a vending machine in JavaScript.
 
 To get started, you must first `clone` or `download` this repository.
 
-Next, run the following commads in your terminal:
+Next, run the following commands in your terminal:
 
 
 ```node
-cd TDD-Vending-Machine/
 npm install
+npm test
 ```
-
-To run test:
-`npm test`
 
 ## Author
 
-Sophie Virtue
+Sophie Virtue [LinkedIn](https://www.linkedin.com/in/sophie-virtue-65467849/)
